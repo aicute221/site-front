@@ -1,0 +1,26 @@
+{
+    "status": 1,
+    "info": "OK",
+    "data": [
+        {
+            "cover_url": "image/js.jpg",
+            "title": "轮播图案例"
+        },
+        {
+            "cover_url": "image/js.jpg",
+            "title": "轮播图案例"
+        },
+        {
+             "cover_url": "image/js.jpg",
+             "title": "轮播图案例"
+        },
+        {
+          "cover_url": "image/js.jpg",
+          "title": "消息从南娜的小系列"
+        },
+        {
+          "cover_url": "image/js.jpg",
+          "title": "xiaocongmannan 玩笑小拉拉收到货奥迪哦说的发svcbcfsdf"
+        }
+    ]
+}

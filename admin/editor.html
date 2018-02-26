@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>editor</title>
+    <link rel="stylesheet" type="text/css" href="css/simditor.css">
+
+</head>
+<body>
+    <textarea id="editor" placeholder="who are you" autofocus></textarea>
+</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/simple-module.js"></script>
+<script src="js/hotkeys.js"></script>
+<script src="js/simditor.js"></script>
+<script>
+    $(function(){
+        var editor = new Simditor({
+            textarea: $('#editor')
+
+        });
+    })
+</script>
+</html>
