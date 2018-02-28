@@ -4,21 +4,60 @@
     <meta charset="UTF-8">
     <title>editor</title>
     <link rel="stylesheet" type="text/css" href="css/simditor.css">
+    <style type="text/css">
+        button{
+            background-color: yellow;
+            border-radius: 5px;
+            padding: 4px 10px;
+            margin: 10px 0;
+        }
+    </style>
 
 </head>
 <body>
-    <textarea id="editor" placeholder="who are you" autofocus></textarea>
+
+    <textarea id="editor" autofocus></textarea>
+    <button id="save">获取</button>
+    <div class="receive">
+
+    </div>
 </body>
 <script src="js/jquery-3.2.1.js"></script>
-<script src="js/simple-module.js"></script>
+<script src="js/module.js"></script>
 <script src="js/hotkeys.js"></script>
 <script src="js/simditor.js"></script>
 <script>
     $(function(){
         var editor = new Simditor({
-            textarea: $('#editor')
+            textarea: $('#editor'),
+            placeholder:"who are you",
+            toolbarFloat: true,
+            cleanPaste: false
 
         });
+
+
+        var last_update_time = 0;
+        var saved = false;
+
+        editor.on("valuechanged", function(){
+            $(".receive").html("");
+            $(".receive").append(editor.getValue());
+
+            last_update_time = new Date().getTime();
+            saved = false;
+
+        });
+
+
+        setInterval(function(){
+            var now = new Date().getTime();
+            if (!saved && now - last_update_time > 3000){
+                console.log("save");
+                saved = true;
+            }
+        }, 1000);
+
     })
 </script>
 </html>
