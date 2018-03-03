@@ -19,7 +19,7 @@
             border: 1px solid #dddddd;
             border-radius: 5px;
         }
-        .article{
+        .content{
             display: inline-block;
             padding: 13px;
             width: 1000px;
@@ -32,6 +32,11 @@
             padding: 8px 18px;
         }
     </style>
+    <script>
+        var config = {
+            id : ""
+        };
+    </script>
 </head>
 <body>
     <div>
@@ -42,8 +47,8 @@
         <span class="m-span">*作者:</span>
         <input type="text" class="box" name="author"><br>
         <span class="m-span" style="vertical-align: top">*正文:</span>
-        <div class="article">
-            <textarea id="editor" autofocus name="article"></textarea>
+        <div class="content">
+            <textarea id="editor" autofocus name="content"></textarea>
         </div><br>
         <input type="submit" value="提交" class="submit">
     </div>
@@ -66,12 +71,12 @@
                 $.ajax({
                     url:"",
                     type: 'get',
-                    dataType: 'ajax',
+                    dataType: 'json',
                     data:{
                         title: $("[name='title']").val(),
-                        sub_title: $("[name='sunn-title']").val(),
+                        sub_title: $("[name='sub-ititle']").val(),
                         author: $("[name='author']").val(),
-                        content: $("[name='article']").val()
+                        content: editor.getValue()
                     },
                     success: function(response){
                         if(response.status === 1){
@@ -84,7 +89,26 @@
                         alert(response.status)
                     }
                 })
-            })
+            });
+
+            if(config.id !== ""){
+                $.ajax({
+                    url: "",
+                    type: 'get',
+                    dataType: 'json',
+                    data:{
+                        id: config.id
+                    },
+                    success: function(response){
+                        if(response.status === 1){
+                            $("[name='title']").val(response.data.title);
+                            $("[name='sub-ititle']").val(response.data.sub_title);
+                            $("[name='author']").val(response.data.author);
+                            editor.setValue(response.data.content)
+                        }
+                    }
+                });
+            }
         })
     </script>
 </html>
