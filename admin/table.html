@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table</title>
+    <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+    <style>
+        table{
+            border: 2px solid #eeeeee;
+            /*border-radius: 5px;*/
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        tr{
+            border: 1px solid #eeeeee;
+        }
+        th,td{
+            text-align: left;
+            padding: 10px;
+        }
+        th{
+            background-color: #F0F0F0;
+        }
+        .fa-trash-alt{
+            color: red;
+        }
+        .fa-comment, .fa-edit{
+            color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>博文ID</th>
+            <th>标题</th>
+            <th>作者</th>
+            <th>时间</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td>3001364</td>
+            <td>123</td>
+            <td>1</td>
+            <td>2017-09-26 18:51:50</td>
+            <td>
+                <a href="" class="comment"><i class="fa fa-comment"></i></a>
+                <a href="" class="edit"><i class="fa fa-edit"></i></a>
+                <i class="fa fa-trash-alt"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>3001389</td>
+            <td>你是🐷</td>
+            <td>从</td>
+            <td>2018-02-28 12:11:09</td>
+            <td>
+                <a href="" class="comment"><i class="fa fa-comment"></i></a>
+                <a href="" class="edit"><i class="fa fa-edit"></i></a>
+                <i class="fa fa-trash-alt"></i>
+            </td>
+        </tr>
+        <tr>
+            <td>3001890</td>
+            <td>🐱是🐷</td>
+            <td>nine</td>
+            <td>2018-02-28 12:17:20</td>
+            <td>
+                <a href="" class="comment"><i class="fa fa-comment"></i></a>
+                <a href="" class="edit"><i class="fa fa-edit"></i></a>
+                <i class="fa fa-trash-alt"></i>
+            </td>
+        </tr>
+    </table>
+</body>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".fa-trash-alt").click(function(){
+                $(this).parent().parent().remove();
+            })
+        })
+    </script>
+</html>

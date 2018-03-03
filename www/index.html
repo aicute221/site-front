@@ -57,7 +57,8 @@
                 console.log(response);
                 if (response.status === 1){
                     response.data.forEach(function(item){
-                        var c = '<div class="article-item">'+
+                        var c = '<a href="#">'+
+                        '<div class="article-item">'+
                         '<h1 class="title">' + item.title + '</h1>'+
                         '<p class="sub-title">' + item.sub_title + '</p>'+
                         '<p class="summary">'+
@@ -70,6 +71,7 @@
                         '</i>'+
                         '</p>'+
                         '</div>'+
+                        '</a>'+
                         '<div class="line"></div>';
 
                         $("#articles").append(c);
@@ -89,10 +91,13 @@
            success: function(response){
                if(response.status === 1){
                    response.data.forEach(function(item){
-                       var a ='<div class="example-item">' +
+                       var a = '<a href="#">'+
+                           '<div class="example-item">' +
                            '<img src="'+item.cover_url+'">' +
                            '<p>'+ item.title +'</p>' +
-                           '</div>';
+                           '</div>'+
+                           '</a>'
+                           ;
                        $("#examples").append(a);
                    });
                }

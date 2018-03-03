@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add_blog</title>
+    <link rel="stylesheet" type="text/css" href="css/simditor.css">
+    <style>
+        .m-span{
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 20px 0 5px 20px;
+            width: 55px;
+        }
+        .box{
+            margin: 0 13px;
+            padding: 9px;
+            width: 320px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+        }
+        .article{
+            display: inline-block;
+            padding: 13px;
+            width: 1000px;
+        }
+        .submit{
+            color: white;
+            background-color: #92b901;
+            border: 1px solid #92b901;
+            border-radius: 5px;
+            margin: 10px 0 0 92px;
+            padding: 8px 18px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span class="m-span">*标题:</span>
+        <input type="text" class="box"><br>
+        <span class="m-span">*副标题:</span>
+        <input type="text" class="box"><br>
+        <span class="m-span">*作者:</span>
+        <input type="text" class="box"><br>
+        <span class="m-span" style="vertical-align: top">*正文:</span>
+        <div class="article">
+            <textarea id="editor" autofocus></textarea>
+        </div><br>
+        <input type="submit" value="提交" class="submit">
+    </div>
+
+</body>
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/module.js"></script>
+    <script src="js/hotkeys.js"></script>
+    <script src="js/simditor.js"></script>
+    <script>
+        $(function(){
+            var editor = new Simditor({
+                textarea: $('#editor'),
+                placeholder:"who are you",
+                toolbarFloat: true,
+                cleanPaste: false
+            });
+        })
+    </script>
+</html>
