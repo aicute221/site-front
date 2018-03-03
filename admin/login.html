@@ -33,7 +33,12 @@
                     success: function(response){
                         if(response.status ===1){
                             window.location.href=response.data.url
+                        }else{
+                            alert(response.info)
                         }
+                    },
+                    error: function (response) {
+                        alert(response.status)
                     }
                 });
             });

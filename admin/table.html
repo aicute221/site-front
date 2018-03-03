@@ -38,46 +38,52 @@
             <th>时间</th>
             <th>操作</th>
         </tr>
-        <tr>
-            <td>3001364</td>
-            <td>123</td>
-            <td>1</td>
-            <td>2017-09-26 18:51:50</td>
-            <td>
-                <a href="" class="comment"><i class="fa fa-comment"></i></a>
-                <a href="" class="edit"><i class="fa fa-edit"></i></a>
-                <i class="fa fa-trash-alt"></i>
-            </td>
-        </tr>
-        <tr>
-            <td>3001389</td>
-            <td>你是🐷</td>
-            <td>从</td>
-            <td>2018-02-28 12:11:09</td>
-            <td>
-                <a href="" class="comment"><i class="fa fa-comment"></i></a>
-                <a href="" class="edit"><i class="fa fa-edit"></i></a>
-                <i class="fa fa-trash-alt"></i>
-            </td>
-        </tr>
-        <tr>
-            <td>3001890</td>
-            <td>🐱是🐷</td>
-            <td>nine</td>
-            <td>2018-02-28 12:17:20</td>
-            <td>
-                <a href="" class="comment"><i class="fa fa-comment"></i></a>
-                <a href="" class="edit"><i class="fa fa-edit"></i></a>
-                <i class="fa fa-trash-alt"></i>
-            </td>
-        </tr>
+        <tbody>
+            <!--<tr>-->
+                <!--<td>3001364</td>-->
+                <!--<td>123</td>-->
+                <!--<td>1</td>-->
+                <!--<td>2017-09-26 18:51:50</td>-->
+                <!--<td>-->
+                    <!--<a href="" class="comment"><i class="fa fa-comment"></i></a>-->
+                    <!--<a href="" class="edit"><i class="fa fa-edit"></i></a>-->
+                    <!--<i class="fa fa-trash-alt"></i>-->
+                <!--</td>-->
+            <!--</tr>-->
+        </tbody>
     </table>
 </body>
     <script src="js/jquery-3.2.1.js"></script>
     <script>
         $(document).ready(function(){
-            $(".fa-trash-alt").click(function(){
-                $(this).parent().parent().remove();
+//            $(".fa-trash-alt").click(function(){
+//                $(this).parent().parent().remove();
+//            })
+
+
+            $.ajax({
+                url:"/site-front/www/test/article.json",
+                type: 'get',
+                dataType: 'json',
+                data: {},
+                success: function(response){
+                    if(response.status === 1){
+                        response.data.forEach(function(item){
+                            var a ='<tr>' +
+                                '<td>'+item.id+'</td>' +
+                                '<td>'+item.title+'</td>' +
+                                '<td>'+ item.author+'</td>' +
+                                '<td>'+item.time+'</td>' +
+                                '<td>' +
+                                '<a href="" class="comment"><i class="fa fa-comment"></i></a>' +
+                                '<a href="" class="edit"><i class="fa fa-edit"></i></a>' +
+                                '<i class="fa fa-trash-alt"></i>' +
+                                '</td>' +
+                                '</tr>';
+                            $("tbody").append(a);
+                        })
+                    }
+                }
             })
         })
     </script>

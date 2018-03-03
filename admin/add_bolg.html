@@ -27,7 +27,6 @@
         .submit{
             color: white;
             background-color: #92b901;
-            border: 1px solid #92b901;
             border-radius: 5px;
             margin: 10px 0 0 92px;
             padding: 8px 18px;
@@ -37,14 +36,14 @@
 <body>
     <div>
         <span class="m-span">*标题:</span>
-        <input type="text" class="box"><br>
+        <input type="text" class="box" name="title"><br>
         <span class="m-span">*副标题:</span>
-        <input type="text" class="box"><br>
+        <input type="text" class="box" name="sub-title"><br>
         <span class="m-span">*作者:</span>
-        <input type="text" class="box"><br>
+        <input type="text" class="box" name="author"><br>
         <span class="m-span" style="vertical-align: top">*正文:</span>
         <div class="article">
-            <textarea id="editor" autofocus></textarea>
+            <textarea id="editor" autofocus name="article"></textarea>
         </div><br>
         <input type="submit" value="提交" class="submit">
     </div>
@@ -62,6 +61,30 @@
                 toolbarFloat: true,
                 cleanPaste: false
             });
+
+            $(".submit").click(function(){
+                $.ajax({
+                    url:"",
+                    type: 'get',
+                    dataType: 'ajax',
+                    data:{
+                        title: $("[name='title']").val(),
+                        sub_title: $("[name='sunn-title']").val(),
+                        author: $("[name='author']").val(),
+                        content: $("[name='article']").val()
+                    },
+                    success: function(response){
+                        if(response.status === 1){
+                            window.location.href=response.data.url;
+                        }else{
+                            alert(response.info)
+                        }
+                    },
+                    error: function (response) {
+                        alert(response.status)
+                    }
+                })
+            })
         })
     </script>
 </html>
