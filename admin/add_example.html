@@ -47,12 +47,13 @@
             })
         }
 
-        $("submit").click(function(){
+        $(".submit").click(function(){
             $.ajax({
                 url:'/site-front/admin/test/add_example.json',
                 type: 'get',
                 dataType: 'json',
                 data: {
+                    id: config.id,
                     title: $("[name='title']").val(),
                     type: $("[name='type']").val(),
                     name: $("[name='name']").val()
