@@ -4,43 +4,7 @@
     <meta charset="UTF-8">
     <title>table</title>
     <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
-    <style>
-        table{
-            border: 2px solid #eeeeee;
-            border-collapse: collapse;
-            font-size: 13px;
-        }
-        tr{
-            border: 1px solid #eeeeee;
-        }
-        th,td{
-            text-align: left;
-            padding: 10px;
-        }
-        th{
-            background-color: #F0F0F0;
-        }
-        .fa-trash-alt{
-            color: red;
-        }
-        .fa-comment, .fa-edit{
-            color: yellowgreen;
-            padding-right: 10px;
-        }
-        #id, #author{
-            width: 100px;
-        }
-        #title{
-            width: 200px;
-        }
-
-        #time{
-            width: 150px;
-        }
-        #operate{
-            width: 62px;
-        }
-    </style>
+    <link href="css/table.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <table>
@@ -77,7 +41,7 @@
 
 
             $.ajax({
-                url:"/site-front/www/test/article.json",
+                url:'/site-front/www/test/article.json',
                 type: 'get',
                 dataType: 'json',
                 data: {},
